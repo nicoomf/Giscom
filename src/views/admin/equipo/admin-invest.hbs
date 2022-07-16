@@ -1,0 +1,54 @@
+<div class="bg-panel">
+    <div class="d-flex">
+
+        {{>sidebar}}
+
+        <div class="admin-container w-100 container">
+            <div class="head-admin-container m-3">
+                <h1 class="title">Menu de Investigadores</h1>
+                <a href="/admin/nuevo-invest"><button class="btn btn-primary">Agregar Investigador</button></a>
+            </div>
+
+            <div id="content" class="d-block">
+                <!-- Tabla -->
+                <div class="container w-100">
+                    <table class="table table-hover">
+                        <thead class="bg-primary text-light">
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Correo</th>
+                                <th>Accion</th>
+                                <th>Visualizar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each invest}}
+                            <tr>
+                                <td>{{nombre}}</td>
+                                <td>{{email}}</td>
+                                <td>
+                                    <div class="d-flex">
+                                        <form action="/admin/edit-invest/{{_id}}" method="PUT">
+                                            <button type="submit" class="btn btn-primary btn-sm mr-2">
+                                                <i class="fas fa-pen lead"></i>
+                                            </button>
+                                        </form>
+                                        <form action="/admin/delete-invest/{{_id}}?_method=DELETE" method="POST">
+                                        <input type="hidden" name="_method" value="DELETE">
+                                            <button type="submit" class="btn btn-danger btn-sm">
+                                                <i class="fas fa-trash-alt lead"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </td>
+                                <td><a href="/equipo/investigadores" class="btn btn-success btn-sm ml-3"><i class="fas fa-eye lead"></i></a></td>                               
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

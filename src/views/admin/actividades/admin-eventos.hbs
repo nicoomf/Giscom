@@ -1,0 +1,96 @@
+<div class="bg-panel">
+    <div class="d-flex">
+
+        {{>sidebar}}
+
+        <div class="admin-container w-100 container">
+            <div class="head-admin-container m-3">
+                <h1 class="title">Menu de Eventos</h1>
+                <a href="/admin/nuevo-evento"><button class="btn btn-primary">Agregar Evento</button></a>
+            </div>
+
+            <div id="content" class="d-block">
+                <!-- Tabla -->
+                <div class="container w-100">
+                    <table class="table table-hover">
+                        <thead class="bg-primary text-light">
+                            <tr>
+                                <th width="30%">Titulo</th>
+                                <th width="20%">Fecha de Creacion</th>
+                                <th width="20%">Fecha del evento</th>
+                                <th width="10%">Hora</th>
+                                <th width="10%">Accion</th>
+                                {{!-- <th>Visualizar</th> --}}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each event}}
+                            <tr>
+                                <td>{{titulo}}</td>
+                                <td>{{creado}}</td>
+                                <td>{{fechaFormat}}</td>
+                                <td>{{hora}}</td>
+                                <td>
+                                    <div class="d-flex">
+                                        <form action="/admin/edit-event/{{_id}}" method="PUT">
+                                            <button type="submit" class="btn btn-primary btn-sm">
+                                                <i class="fas fa-pen lead"></i>
+                                            </button>
+                                        </form>
+                                        <form action="/admin/delete-event/{{_id}}?_method=DELETE" method="POST">
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <button type="submit" class="btn btn-danger btn-sm ml-2">
+                                                <i class="fas fa-trash-alt lead"></i>
+                                            </button>
+                                        </form>
+                                        <a href="#" class="btn btn-success btn-sm ml-2"><i
+                                                class="fas fa-eye lead"></i></a>
+                                        <a href="#" class="btn btn-warning btn-sm ml-2"><i
+                                                class="far fa-envelope lead"></i></a>
+                                    </div>
+                                </td>
+                                {{!-- <td>
+                                    <div class="d-flex">
+                                        <a href="#" class="btn btn-success btn-sm ml-3"><i
+                                                class="fas fa-eye lead"></i></a>
+                                        <a href="#" class="btn btn-success btn-sm ml-3"><i
+                                                class="far fa-envelope"></i></a>
+                                    </div>
+                                </td> --}}
+                            </tr>
+                            {{/each}}
+                        </tbody>
+
+                    </table>
+
+                    {{!-- Botones de paginacion... --}}
+                    <div id="paginacion" class="">
+                        <input type="hidden" id="page" value="{{page}}">
+                        <input type="hidden" id="ultPage" value="{{ultPage}}">
+                        <input type="hidden" id="url" value="/admin/eventos">
+                        <nav>
+                            <ul class="pagination justify-content-center rounded">
+                                <li class="page-item"><button class="btn btn-outline-primary rounded mx-1"
+                                        id="btn-inicio">Inicio</button></li>
+                                <li class="page-item"><button class="btn btn-outline-primary rounded mx-1"
+                                        id="btn-anterior"><i class="fas fa-angle-left"></i></button></li>
+                                {{#each totalPages}}
+                                <li class="page-item"><a href="/admin/eventos?page={{this}}"
+                                        class="btn btn-outline-primary rounded mx-1 d-none"
+                                        id="btn{{this}}">{{this}}</a>
+                                </li>
+                                {{/each}}
+                                <li class="page-item"><button class="btn btn-outline-primary rounded mx-1"
+                                        id="btn-siguiente"><i class="fas fa-angle-right"></i></button></li>
+                                <li class="page-item"><button class="btn btn-outline-primary rounded mx-1"
+                                        id="btn-final">Final</button></li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

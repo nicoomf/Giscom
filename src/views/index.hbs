@@ -1,0 +1,90 @@
+<div class="fondoblanco container p-0">
+    <!-- Slider -->
+    <div class='container-fluid slider d-flex flex-column justify-content-center align-items-center'>
+        <div id='carouselExampleControls' class='container carousel slide' data-ride='carousel'>
+            <div class='carousel-inner text-center w-75 mx-auto'>
+                {{#each novedades}}
+                <div class='carousel-item' id="sliderItem{{@index}}">
+                    <div class='d-block'>
+                        <div class='text-white'>
+                            <h3 class="limit-line2">
+                                {{titulo}}
+                            </h3>
+                            <div class='limit-line'>
+                                {{{descripcion}}}
+                            </div>
+                            <input type="hidden" id="idNovedad{{@index}}" value="{{id}}">
+                            <input type="hidden" id="catNovedad{{@index}}" value="{{categoria}}">
+                            <button type='submit' class='mt-4 btn btn-warning'>
+                                Ver más
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+            <a class='carousel-control-prev' href='#carouselExampleControls' role='button' data-slide='prev'>
+                <span class='carousel-control-prev-icon' aria-hidden='true'></span>
+                <span class='sr-only'>
+                    Previous
+                </span>
+            </a>
+            <a class='carousel-control-next' href='#carouselExampleControls' role='button' data-slide='next'>
+                <span class='carousel-control-next-icon' aria-hidden='true'></span>
+                <span class='sr-only'>
+                    Next
+                </span>
+            </a>
+        </div>
+    </div>
+    {{!-- Fin Slider --}}
+
+    {{!-- Inicio contenido principal --}}
+
+    <main role="main" class="container">
+        <div class="row">
+            <div class="col-md-8 blog-main">
+                <h3 class="pb-4 mb-1 font-italic border-bottom font-weight-bold">
+                    Publicaciones recientes
+                </h3>
+
+                {{!-- Inicio publicaciones principales --}}
+                {{#each public2}}
+                <div
+                    class="card mb-3 row no-gutters border border-primary rounded overflow-hidden flex-md-row h-md-250 position-relative">
+                    <div class="card-body">
+                        <div class="blog-post">
+                            <h2 class="blog-post-title limit-line2"><a
+                                    href="/actividades/publicaciones/{{id}}">{{titulo}}</a></h2>
+                            <p class="blog-post-meta">{{creado}} &nbsp;
+                                <a href="/actividades/publicaciones?autor={{autor}}"><i class="fas fa-user"></i>
+                                    {{autor}}</a> &nbsp; <a href="/actividades/publicaciones?categoria={{categoria}}"
+                                    class="badge barge-pill badge-warning rounded">{{categoria}}</a>
+                            </p>
+                            <div class="limit-line my-3">
+                                {{{descripcion}}}
+                            </div>
+                            <a href='/actividades/publicaciones/{{id}}' class='btn btn-warning mb-1 btn-sm float-right'>
+                                Ver más...
+                            </a>
+                        </div><!-- fin blog post -->
+                    </div>
+                </div>
+                {{/each}}
+                <a href='/actividades/publicaciones' class='btn btn-primary mb-1 text-center d-block'>
+                    Ver todas las publicaciones
+                </a>
+            </div><!-- Fin publicaciones principales. -->
+
+
+            {{!-- Inicio Aside --}}
+            {{>aside}}
+            <!-- Fin Aside -->
+
+        </div><!-- /row -->
+
+    </main>
+
+    {{!-- Fin contenido principal --}}
+
+</div>

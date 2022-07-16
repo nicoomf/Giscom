@@ -1,0 +1,118 @@
+{{!-- Seccion sobre nosotros. --}}
+<aside class="col-md-4 blog-sidebar">
+    <div class="px-4 mb-4 bg-light rounded">
+        <h4 class="font-italic font-weight-bold">Sobre nosotros <i class="fas fa-users"></i></h4>
+        <p>La problemática científica de este grupo se refiere al estudio del tratamiento de
+            datos,
+            la
+            interoperabilidad de equipos y la toma de decisiones basada en inteligencia artificial...</p>
+        {{!-- <button type="button" class="btn btn-link float-right">Leer más...</button> --}}
+        {{!-- <a href="/nosotros" class="btn btn-link float-right">Leer más...</a> --}}
+        <a href='/nosotros' class='btn btn-primary mb-1 text-center d-block'>
+            Leer más
+        </a>
+    </div>
+    {{!-- Fin --}}
+
+    {{!-- Seccion Eventos. --}}
+    <div class="px-4">
+        <h4 class="font-italic font-weight-bold">Ultimos eventos <i class="fas fa-calendar-alt"></i></h4>
+        <ol class="list-unstyled mb-0">
+            {{#each ultimos3}}
+            <li>
+                <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                    <div class="card-header text-center">{{titulo}}</div>
+                    <div class="card-body bg-light text-center text-dark">
+                        <h5 class="card-title limit-line text-uppercase limit-line2">{{fechaFormat}}</h5>
+                        {{!-- <p class="card-text limit-line2">{{descripcion}}</p> --}}
+                        <button type="button" class="btn btn-primary mt-2" data-toggle="modal"
+                            data-target="#{{url}}">Suscribirse</button>
+
+                        {{!-- Modal para suscripcion al evento: --}}
+                        <div class="modal fade" tabindex="-1" id="{{url}}">
+                            <div class="modal-dialog modal-dialog-centered modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h2 class="modal-title font-weight-bold limit-line2">{{titulo}}</h2>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                                            id="cerrarXModal{{@index}}">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <h3 class="font-weight-normal">Descripcion:</h3>
+                                        <p class="m-3 text-justify limit-line">{{{descripcion}}}</p>
+                                        <h3 class="font-weight-normal">Se realizará el: <div class="mb-1 text-muted">
+                                                {{fechaFormat}}
+                                            </div>
+                                        </h3>
+
+                                        <h2 class="font-weight-bold color-blue font-italic">¡Suscribete
+                                            aqui!
+                                        </h2>
+
+                                        <div class="row mt-3">
+                                            <div class="col-lg-6">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text font-weight-bold"
+                                                            id="basic-addon1">Nombre</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" id="nombreSus{{@index}}"
+                                                        placeholder="nombre" aria-label="Nombre del Suscriptor"
+                                                        aria-describedby="nombre del suscriptor" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text font-weight-bold"
+                                                            id="basic-addon1">Apellido</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" id="apellidoSus{{@index}}"
+                                                        placeholder="apellido" aria-label="Apellido del Suscriptor"
+                                                        aria-describedby="apellido del suscriptor" required>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="input-group my-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text font-weight-bold"
+                                                    id="basic-addon1">Escribe tu email</span>
+                                            </div>
+                                            <input type="email" class="form-control" id="emailSus{{@index}}"
+                                                placeholder="email@ejemplo.com" aria-label="Email del usuario"
+                                                aria-describedby="btn-suscribirse" required>
+                                            <div class="input-group-append">
+                                                <button class="btn btn-danger" type="submit"
+                                                    id="btn-suscribirse{{@index}}">Suscribirse</button>
+                                            </div>
+                                            <input type="hidden" id="idEvent{{@index}}" value="{{id}}">
+                                            <input type="hidden" id="idModal{{@index}}" value="{{url}}">
+                                        </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-secoundary" data-dismiss="modal"
+                                            id="cerrarModal{{@index}}">Cerrar</button>
+                                        <button type="button" id="btn-irEvent{{@index}}" class="btn btn-primary">Ver más
+                                            del
+                                            evento</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </li>
+            {{/each}}
+        </ol>
+        <a href='/actividades/eventos' class='btn btn-primary mb-4 text-center d-block'>
+            Ver todos los eventos
+        </a>
+    </div>
+    {{!-- Fin --}}
+</aside>

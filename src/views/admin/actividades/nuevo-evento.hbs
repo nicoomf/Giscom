@@ -1,0 +1,58 @@
+<div class="bg-panel">
+    <div class="d-flex">
+
+        {{>sidebar}}
+
+        <div class="admin-container w-100 container">
+            <div class="head-admin-container m-3">
+                <h1 class="title">Menu de Eventos</h1>
+                <a href="/admin/eventos"><button class="btn btn-primary">Volver Atras</button></a>
+            </div>
+
+            <div id="content" class="d-block">
+                <!-- FORMULARIO -->
+                <div class="row">
+                    <div class="col-lg mx-auto">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Nuevo Evento</h3>
+                            </div>
+                            <div class="card-body">
+                                <form action="" method="POST">
+                                    <div class="form-group">
+                                        <label for="titulo">Titulo:</label>
+                                        <input type="text" id="titulo" class="form-control" name="titulo"
+                                            placeholder="Titulo para la publicacion" value="{{titulo}}" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="descripcion">Descripcion:</label>
+                                        <textarea id="descripcion" name="descripcion" class="form-control" placeholder="Descripcion del evento" value="{{descripcion}}" required style="height: 200px;" aria-label="With textarea"></textarea>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label for="fecha">Fecha:</label>
+                                                <input type="Date" id="fecha" class="form-control" name="fecha" value="{{fecha}}" min="" required>
+                                            </div>  
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label for="fecha">Hora:</label>
+                                                <input type="Time" id="hora" class="form-control" name="hora" value="{{hora}}" min="" required>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                    <button type="button" id="btn-guardarEvento"
+                                        class="btn btn-primary btn-block">Guardar</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- FIN CONTENT -->
+
+            </div>
+        </div>
+
+    </div>
+</div>

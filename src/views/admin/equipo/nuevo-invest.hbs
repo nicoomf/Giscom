@@ -1,0 +1,98 @@
+<div class="bg-panel">
+    <div class="d-flex">
+
+        {{>sidebar}}
+
+        <div class="admin-container w-100 container">
+            <div class="head-admin-container m-3">
+                <h1 class="title">Menu de Investigadores</h1>
+                <a href="/admin/investigadores"><button class="btn btn-primary">Volver</button></a>
+            </div>
+
+            <div id="content" class="d-block">
+                <!-- FORMULARIO -->
+                <div class="row">
+                    <div class="col-lg mx-auto">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Nuevo Investigador</h3>
+                            </div>
+                            <div class="card-body">
+                                <form action="/admin/save-invest" method="POST">
+                                    <div class="form-group">
+                                        <label for="nombre">Nombre:</label>
+                                        <input type="text" id="nombre" class="form-control" name="nombre"
+                                            placeholder="Nombre completo" value="{{nombre}}" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="imgUrl">Foto de Perfil:</label>
+                                        <div class="input-group">
+                                            <select class="form-select form-control" id="imgUrl" name="imgUrl">
+                                                <option selected>Seleccione una foto de perfil...</option>
+                                                {{#each fotos}}
+                                                <option value="{{filename}}">{{title}}</option>
+                                                {{/each}}
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="departamento">Departamento:</label>
+                                        <textarea id="departamento" name="departamento" class="form-control"
+                                            placeholder="Departamento" required></textarea>
+                                    </div>
+                                    <div class="form-group" id="massageTitulos">
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="titulos">Titulos:</label>
+                                        <div class="row mx-auto">
+                                            <input type="text" id="titulos" name="titulos"
+                                                placeholder="Titulos, Doctorados, Magisters obtenidos..."
+                                                class="form-control col-11">
+                                            <button type="button" id="agregarTitulo"
+                                                class="btn btn-primary btn-inline-block col-1">Agregar</button>
+                                        </div>
+                                        <ul id="lista_titulos" class="list-group my-2">
+
+                                        </ul>
+                                    </div>
+                                    <div class="form-group" id="massageAreas">
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="areas">Areas:</label>
+                                        <div class="row mx-auto">
+                                            <input type="text" id="areas" name="areas"
+                                                placeholder="Areas en las que trabaja..." class="form-control col-11">
+                                            <button type="button" id="agregarArea"
+                                                class="btn btn-primary btn-inline-block col-1">Agregar</button>
+                                        </div>
+                                        <ul id="lista_areas" class="list-group my-2">
+
+                                        </ul>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Email:</label>
+                                        <input type="email" id="email" class="form-control" name="email"
+                                            placeholder="Correo Electronico" value="{{email}}" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="numero">Numero:</label>
+                                        <input type="text" id="numero" class="form-control" name="numero"
+                                            placeholder="Numero telefonico" value="{{numero}}" required>
+                                    </div>
+                                    <button type="button" class="btn btn-primary btn-block" id="btn-test">
+                                        Registrar
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- FIN CONTENT -->
+
+            </div>
+        </div>
+
+    </div>
+</div>

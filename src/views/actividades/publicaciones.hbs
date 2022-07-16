@@ -1,0 +1,66 @@
+<div class='container fondoblanco pt-4'>
+    <!-- Publicaciones -->
+    <main role="main" class="container">
+        <div class="row">
+            <div class="col-md-8 blog-main">
+                <h3 class="pb-4 mb-1 font-italic border-bottom font-weight-bold">
+                    Todas las publicaciones
+                </h3>
+                {{!-- Inicio publicaciones principales --}}
+                {{#each public}}
+                <div
+                    class="card mb-3 row no-gutters border border-primary rounded overflow-hidden flex-md-row h-md-250 position-relative">
+                    <div class="card-body">
+                        <div class="blog-post">
+                            <h2 class="blog-post-title mb-3"><a href="/actividades/publicaciones/{{id}}">{{titulo}}</a>
+                            </h2>
+                            <p class="blog-post-meta">{{creado}} &nbsp;
+                                <a href="/actividades/publicaciones?autor={{autor}}"><i class="fas fa-user"></i>
+                                    {{autor}}</a> &nbsp; <a href="/actividades/publicaciones?categoria={{categoria}}"
+                                    class="badge barge-pill badge-warning rounded">{{categoria}}</a>
+                            </p>
+                            <div class="limit-line my-3">
+                                {{{descripcion}}}
+                            </div>
+                            <a href='/actividades/publicaciones/{{id}}' class='btn btn-warning mb-1 btn-sm float-right'>
+                                Ver más...
+                            </a>
+                        </div><!-- fin blog post -->
+                    </div>
+                </div>
+                {{/each}}
+
+                {{!-- Botones de paginacion... --}}
+                <div id="paginacion" class="">
+                    <input type="hidden" id="page" value="{{page}}">
+                    <input type="hidden" id="ultPage" value="{{ultPage}}">
+                    <input type="hidden" id="url" value="/actividades/publicaciones">
+                    <nav>
+                        <ul class="pagination justify-content-center rounded">
+                            <li class="page-item"><button class="btn btn-outline-primary rounded mx-1"
+                                    id="btn-inicio">Inicio</button></li>
+                            <li class="page-item"><button class="btn btn-outline-primary rounded mx-1"
+                                    id="btn-anterior"><i class="fas fa-angle-left"></i></button></li>
+                            {{#each totalPages}}
+                            <li class="page-item"><a href="/actividades/publicaciones?page={{this}}"
+                                    class="btn btn-outline-primary rounded mx-1 d-none" id="btn{{this}}">{{this}}</a>
+                            </li>
+                            {{/each}}
+                            <li class="page-item"><button class="btn btn-outline-primary rounded mx-1"
+                                    id="btn-siguiente"><i class="fas fa-angle-right"></i></button></li>
+                            <li class="page-item"><button class="btn btn-outline-primary rounded mx-1"
+                                    id="btn-final">Final</button></li>
+                        </ul>
+                    </nav>
+                </div>
+
+
+            </div><!-- Fin publicaciones. -->
+
+            {{!-- Inicio Sidebar --}}
+            {{>aside}}
+            <!-- Fin Sidebar -->
+
+        </div>
+    </main>
+</div>

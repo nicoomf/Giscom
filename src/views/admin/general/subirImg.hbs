@@ -1,0 +1,99 @@
+<div class="bg-panel">
+    <div class="d-flex">
+
+        {{>sidebar}}
+
+        <div class="admin-container w-100 container">
+            <div class="head-admin-container m-3">
+                <h1 class="title">Menu de imagenes</h1>
+                {{!-- <a href="/admin/nuevo-invest"><button class="btn btn-primary">Agregar Investigador</button></a>
+                --}}
+            </div>
+
+            <div id="content" class="d-block">
+                <div class="row">
+                    <div class="col-lg mx-auto">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Subir nueva imagen</h3>
+                            </div>
+                            <div class="card-body">
+                                <form action="/admin/subir-imagen/save" method="POST" enctype="multipart/form-data">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="custom-file">
+                                                <input type="file" name="image" class="custom-file">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="titulo">Titulo de la imagen:</label>
+                                        <input type="text" name="titulo" class="form-control" placeholder="Titulo de la imagen" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <button class="btn btn-primary btn-block" type="submit">Subir imagen</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container w-100">
+                    <table class="table table-hover">
+                        <thead class="bg-primary text-light">
+                            <tr>
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <th>Titulo de la imagen</th>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <th width="40px"></th>
+                                        <th width="40px"></th>
+                                    </div>
+                                </div>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each imagenes}}
+                            <tr>
+                                <td>{{title}}</td>
+                                <td>
+                                    <div class="d-flex">
+                                        <button type="button" class="btn btn-sm btn-danger btn-block">Eliminar</button>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="d-flex">
+                                        <button type="button" class="btn btn-sm btn-primary btn-block" data-toggle="modal" data-target="#{{idmodal}}">Visualizar</button>
+                                        
+                                        <div class="modal-container">
+                                            <div class="modal fade" tabindex="-1" id="{{idmodal}}">
+                                                <div class="modal-dialog modal-dialog-centered modal-lg">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title">{{title}}</h5>
+                                                             <button class="close" data-dismiss="modal">&times;</button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="container text-center">
+                                                                <img class="img-fluid figure-img" width="auto" height="500px" style="max-width: 790px; max-height: 500px" src="/uploads/{{filename}}" alt="Imagen de {{title}}">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>

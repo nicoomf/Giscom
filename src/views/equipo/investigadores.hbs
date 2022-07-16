@@ -1,0 +1,82 @@
+<div class="container pt-3">
+    <div class="row">
+        {{#each invest}}
+        <div class="col-md-6">
+            <div class="card shadow card-invest mb-4">
+                <div class="card-body d-flex investigador">
+                    <div class="row">
+                        <div class="col-md-4 mx-auto my-auto">
+                            <img src="/uploads/{{imgUrl}}" alt="Foto de perfil de {{nombre}}"
+                                class="img-fluid img-thumbnail">
+                        </div>
+                        <div class="col-md-8">
+                            <h4>{{nombre}}</h4>
+                            <h6>{{departamento}}</h6>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <a class="link" href="mailto:{{email}}">{{email}}</a>
+                                    <p>{{numero}}</p>
+                                </div>
+                                <div class="col-md-4 d-flex align-items-end">
+                                    <button type="button" class="btn btn-primary btn-sm flex-end" data-toggle="modal"
+                                        data-target="#{{idmodal}}">Ver más</button>
+
+                                    <div class="modal-container">
+                                        <div class="modal fade" tabindex="-1" id="{{idmodal}}">
+                                            <div class="modal-dialog modal-dialog-centered modal-lg">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title">{{nombre}}</h4>
+                                                        <button class="close" data-dismiss="modal">&times;</button>
+                                                    </div>
+                                                    <div class="modal-body investigadorModal">
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <img src="/uploads/{{imgUrl}}"
+                                                                            alt="Foto de perfil de {{nombre}}"
+                                                                            class="img-fluid img-thumbnail">
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        <h6 class="mt-2">{{departamento}}</h6>
+                                                                        <a class="link"
+                                                                            href="mailto:{{email}}">{{email}}</a>
+                                                                        <p>{{numero}}</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                <div class="container">
+                                                                    <h5>Antecedentes Academicos:</h5>
+                                                                    <ul class="list-group">
+                                                                        {{#each titulos}}
+                                                                        <li
+                                                                            class="list-group-item badge bg-primary text-wrap text-light">
+                                                                            {{this}}</li>
+                                                                        {{/each}}
+                                                                    </ul>
+                                                                    <h5>Areas principales de Investigación:</h5>
+                                                                    <ol class="text-left">
+                                                                        {{#each areas}}
+                                                                        <li>{{this}}</li>
+                                                                        {{/each}}
+                                                                    </ol>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>

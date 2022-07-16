@@ -1,0 +1,284 @@
+<!-- Slider -->
+<div
+  class='container-fluid slider d-flex flex-column justify-content-center align-items-center'
+>
+  <div id='carouselExampleControls' class='carousel slide' data-ride='carousel'>
+    <div class='carousel-inner text-center'>
+      {{#each public}}
+        {{#if @first}}
+          <div class='carousel-item active'>
+            <div class=''>
+              <div class='text-center text-white'>
+                <h3>
+                  {{titulo}}
+                </h3>
+                <div class='limit-line2 lead'>
+                  {{{descripcion}}}
+                </div>
+                <button type='submit' class='mt-4 btn btn-danger'>
+                  Ver Más
+                </button>
+              </div>
+            </div>
+          </div>
+        {{/if}}
+        <div class='carousel-item'>
+          <div class='text-center text-white'>
+            <h3>
+              {{titulo}}
+            </h3>
+            <div class='limit-line2'>
+              {{{descripcion}}}
+            </div>
+            <button type='submit' class='mt-4 btn btn-danger'>
+              Ver Más
+            </button>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+    <a
+      class='carousel-control-prev'
+      href='#carouselExampleControls'
+      role='button'
+      data-slide='prev'
+    >
+      <span class='carousel-control-prev-icon' aria-hidden='true'></span>
+      <span class='sr-only'>
+        Previous
+      </span>
+    </a>
+    <a
+      class='carousel-control-next'
+      href='#carouselExampleControls'
+      role='button'
+      data-slide='next'
+    >
+      <span class='carousel-control-next-icon' aria-hidden='true'></span>
+      <span class='sr-only'>
+        Next
+      </span>
+    </a>
+  </div>
+</div>
+
+<div class='container container2 shadow'>
+  <h2 class='pt-4 text-center'>
+    Ultimas Publicaciones
+  </h2>
+  <hr />
+  <div class='row mx-auto'>
+    <!-- Sección de noticias -->
+    <div class='col-12 mb-5'>
+      <!-- Publicaciones -->
+      {{#each public}}
+        <div class='row w-75 mb-5 mx-auto'>
+          <div class='col-12'>
+            <a href='/actividades/publicaciones'>
+              <h3>
+                {{titulo}}
+              </h3>
+            </a>
+            <div class='limit-line'>
+              {{{descripcion}}}
+            </div>
+            <a
+              href='/actividades/publicaciones'
+              class='btn btn-outline-warning btn-sm'
+            >
+              Leer más...
+            </a>
+          </div>
+        </div>
+      {{/each}}
+      <!-- Fin publicaciones -->
+    </div>
+  </div>
+</div>
+
+{{! <div class="text-center text-white">
+        <h3>Lorem ipsum dolor sit amet.</h3>
+        <h1 class="display">Lorem, ipsum dolor.</h1>
+        <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing.</p>
+    </div>
+    <form class="form-inline" action="">
+        <div class="form-group mr-3">
+            <input type="text" placeholder="texto del input.." class="form-control">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-danger">Ver Más</button>
+        </div>
+    </form> }}
+
+    {{!-- Seccion ultima publicacion/evento --}}
+    <div class="container">
+        <h2 class="text-center my-4 font-weight-bold">Ultimas publicaciones</h2>
+        <div class="row mb-2">
+            <div class="col-md-6">
+                <div
+                    class="row no-gutters border border-primary rounded overflow-hidden flex-md-row mb-4 h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <strong class="d-inline-block mb-2 text-primary">Publicación</strong>
+                        <h3 class="mb-0 limit-line2">{{ultPublic.titulo}}</h3>
+                        <div class="mb-1 text-muted">{{ultPublic.creado}}</div>
+                        <div class="limit-line card-text mb-auto">
+                            {{{ultPublic.descripcion}}}
+                        </div>
+                        {{!-- <a href="#" class="stretched-link">Ir a la publicación</a> --}}
+                        <a href='/actividades/publicaciones' class='btn btn-warning mb-1'>
+                            Ver más...
+                        </a>
+                    </div>
+                    <div class="col-auto d-none d-lg-block">
+                        <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg"
+                            role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"
+                            focusable="false">
+                            <title>Placeholder</title>
+                            <rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef"
+                                dy=".3em">Thumbnail</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div
+                    class="row no-gutters border border-primary rounded overflow-hidden flex-md-row mb-4 h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <strong class="d-inline-block mb-2 text-success">Evento</strong>
+                        <h3 class="mb-0 limit-line2">{{ultEvent.titulo}}</h3>
+                        <div class="mb-1 text-muted">{{ultEvent.fechaFormat}}</div>
+                        <div class="limit-line card-text mb-auto">
+                            {{{ultEvent.descripcion}}}
+                        </div>
+                        {{!-- <a href="#" class="stretched-link">Ir al evento</a> --}}
+                        <button type="button" class="btn btn-primary mt-4" data-toggle="modal"
+                            data-target="#{{ultEvent.url}}">Suscribirse</button>
+
+                        {{!-- Modal para suscripcion al ultimo evento: --}}
+                        <div class="modal fade" tabindex="-1" id="{{ultEvent.url}}">
+                            <div class="modal-dialog modal-dialog-centered modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h2 class="modal-title font-weight-bold text-center limit-line2">
+                                            {{ultEvent.titulo}}</h2>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body text-center">
+                                        <h3 class="font-weight-normal">Descripcion:</h3>
+                                        <p class="m-3 text-justify limit-line">{{{ultEvent.descripcion}}}</p>
+                                        <h3 class="font-weight-normal">Se realizará el: <div class="mb-1 text-muted">
+                                                {{ultEvent.fechaFormat}}
+                                            </div>
+                                        </h3>
+
+                                        <h2 class="font-weight-bold color-blue font-italic">¡Suscribete aqui!</h2>
+
+                                        <div class="row mt-3">
+                                            <div class="col-lg-6">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text font-weight-bold"
+                                                            id="basic-addon1">Nombre</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" id="nombreSus"
+                                                        placeholder="nombre" aria-label="Nombre del Suscriptor"
+                                                        aria-describedby="nombre del suscriptor" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text font-weight-bold"
+                                                            id="basic-addon1">Apellido</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" id="apellidoSus"
+                                                        placeholder="apellido" aria-label="Apellido del Suscriptor"
+                                                        aria-describedby="apellido del suscriptor" required>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="input-group my-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text font-weight-bold"
+                                                    id="basic-addon1">Escribe tu
+                                                    email</span>
+                                            </div>
+                                            <input type="email" class="form-control" id="emailSus"
+                                                placeholder="email@ejemplo.com" aria-label="Email del usuario"
+                                                aria-describedby="btn-suscribirse" required>
+                                            <div class="input-group-append">
+                                                <button class="btn btn-danger" type="submit"
+                                                    id="btn-suscribirse">Suscribirse</button>
+                                            </div>
+                                            <input type="hidden" id="idEvent" value="{{ultEvent.id}}">
+                                            <input type="hidden" id="idModal" value="{{ultEvent.url}}">
+                                        </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-secoundary" data-dismiss="modal"
+                                            id="cerrarModal">Cerrar</button>
+                                        <button type="button" id="btn-irEvent" class="btn btn-primary">Ver más del
+                                            evento</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-auto d-none d-lg-block">
+                        <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg"
+                            role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"
+                            focusable="false">
+                            <title>Placeholder</title>
+                            <rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef"
+                                dy=".3em">Thumbnail</text>
+                        </svg>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{!-- Fin ultima publicacion/evento --}}
+
+
+    {{!-- Slider --}}
+
+    <div class='carousel-inner text-center w-75 mx-auto'>
+                {{#each public2}}
+                {{#if @first}}
+                <div class='carousel-item active'>
+                    <div class=''>
+                        <div class='text-center text-white'>
+                            <h3 class="limit-line2">
+                                {{titulo}}
+                            </h3>
+                            <div class='limit-line'>
+                                {{{descripcion}}}
+                            </div>
+                            <button type='submit' class='mt-4 btn btn-warning'>
+                                Ver más
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                {{/if}}
+                <div class='carousel-item'>
+                    <div class='text-center text-white'>
+                        <h3 class="limit-line2">
+                            {{titulo}}
+                        </h3>
+                        <div class='limit-line'>
+                            {{{descripcion}}}
+                        </div>
+                        <button type='submit' class='mt-4 btn btn-warning'>
+                            Ver más
+                        </button>
+                    </div>
+                </div>
+                {{/each}}
+            </div>

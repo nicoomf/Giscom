@@ -1,0 +1,85 @@
+<div class="bg-panel">
+    <div class="d-flex">
+
+        {{>sidebar}}
+
+        <div class="admin-container w-100 container">
+            <div class="head-admin-container m-3">
+                <h1 class="title">Menu de Ayudantes</h1>
+                <a href="/admin/ayudantes"><button class="btn btn-primary">Volver Atras</button></a>
+            </div>
+
+            <div id="content" class="d-block">
+                <!-- FORMULARIO -->
+                <div class="row">
+                    <div class="col-lg mx-auto">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Nuevo Ayudante</h3>
+                            </div>
+                            <div class="card-body">
+                                <form action="/admin/save-ayud" method="POST" enctype="multipart/form-data">
+                                    <div class="form-group">
+                                        <label for="nombre">Nombre:</label>
+                                        <input type="text" id="nombreAyud" class="form-control" name="nombre"
+                                            placeholder="Nombre completo" value="{{nombre}}" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="imgUrl">Foto de Perfil:</label>
+                                        <div class="input-group">
+                                            <select class="form-select form-control" id="imgUrl" name="imgUrl">
+                                                <option selected>Seleccione una foto de perfil...</option>
+                                                {{#each fotos}}
+                                                <option value="{{filename}}">{{title}}</option>
+                                                {{/each}}
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="carrera">Carrera:</label>
+                                        <input type="text" id="carreraAyud" class="form-control" name="carrera"
+                                            placeholder="Carrera del Estudiante" value="{{carrera}}" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="proyecto">Proyecto:</label>
+                                        <input type="text" id="proyectoAyud" class="form-control" name="proyecto"
+                                            placeholder="Proyecto que realiza" value="{{proyecto}}" required>
+                                    </div>
+                                    <div class="form-group" id="massageProfesores">
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="profesor">Profesor(res) Guia:</label>
+                                        <div class="row mx-auto">
+                                            <select class="custom-select form-control col-11" id="profesor" name="profesor">
+                                                <option selected>Seleccione un profesor</option>
+                                                {{#each invest}}
+                                                <option value="{{nombre}}">{{nombre}}</option>
+                                                {{/each}}
+                                            </select>
+                                            <button type="button" id="agregarProfesor"
+                                                class="btn btn-primary btn-inline-block col-1">Agregar</button>
+                                        </div>
+                                        <ul id="lista_profesores" class="list-group my-2">
+
+                                        </ul>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Email:</label>
+                                        <input type="email" id="emailAyud" class="form-control" name="email"
+                                            placeholder="Correo Electronico" value="{{email}}" required>
+                                    </div>
+                                    <button type="button" id="btn-GuardarAyud"
+                                        class="btn btn-primary btn-block">Guardar</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- FIN CONTENT -->
+
+            </div>
+        </div>
+
+    </div>
+</div>

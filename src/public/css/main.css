@@ -1,0 +1,289 @@
+:root {
+  --color1: #006bb3;
+  --color2: #ff7518;
+  --color3: #fcfcfc;
+  --colorTexto: #535353;
+  --colorFondo: #002035;
+  --colorFondo2: #d3d3d3;
+  --color1Hover: #004879;
+}
+
+body {
+  background: var(--colorFondo2);
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.fondoblanco {
+  background: #ffffff;
+}
+
+.logo {
+  width: 30%;
+}
+
+/* .bg-dark {
+    background-color: rgb(0, 119, 255) !important;
+} */
+
+.navbar-brand {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.nav-item a {
+  color: var(--color1) !important;
+  font-weight: 600;
+}
+
+.nav-item a:hover {
+  color: var(--color2) !important;
+}
+
+.dropdown a i {
+  font-size: 20px;
+}
+
+.signIn {
+  margin-right: 10px !important;
+  display: none;
+}
+
+@media (max-width: 1280px) {
+  .nav-item span {
+    display: none !important;
+  }
+
+  .p-5 {
+    padding: 10px 2px !important;
+  }
+
+  .first {
+    display: none !important;
+  }
+
+  .texto {
+    display: none;
+  }
+
+  .barraBusqueda {
+    display: none !important;
+  }
+
+  .mt-4 {
+    margin-top: 0.5rem !important;
+  }
+
+  .p-3 {
+    padding: 0 !important;
+    padding-top: 5px !important;
+  }
+
+  .signIn {
+    display: inline-block !important;
+  }
+}
+
+.texto p,
+.texto h4 {
+  margin: 0;
+  color: var(--color1);
+  text-align: center;
+}
+
+.texto h4 {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.texto p {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* .btn-outline-success {
+    color: #ffffff !important;
+    border-color: var(--color1) !important;
+    background-color: var(--color1Hover) !important;
+}
+
+.btn-outline-success:hover {
+    background-color: var(--color1Hover) !important;
+} */
+
+.Nosotros {
+  margin: 0 auto;
+}
+
+.Nosotros h1 {
+  font-weight: 600;
+}
+
+.Nosotros h1 span {
+  color: var(--color1);
+}
+
+.Nosotros p {
+  font-weight: 400;
+}
+
+.logos {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.logos img {
+  height: 100px;
+  margin: 15px auto;
+}
+
+@media (max-width: 1280px) {
+  .logos {
+    display: block !important;
+  }
+
+  .logos img {
+    margin-bottom: 30px;
+  }
+}
+
+.card-invest {
+  height: 200px !important;
+  align-items: center !important;
+}
+
+.card-ayud {
+  height: 260px !important;
+  align-items: center !important;
+}
+
+/* INVESTIGADORES */
+.investigador {
+  text-align: start;
+}
+
+.investigadorModal {
+  text-align: center;
+}
+
+.investigadorModal img {
+  max-width: 100%;
+  height: auto;
+}
+
+.investigador h4 {
+  font-weight: bold !important;
+  /* margin-bottom: 1rem; */
+}
+
+.investigador h6 {
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.investigador ul li {
+  text-align: left;
+  font-size: 12px;
+}
+
+.investigador h5 {
+  margin: 1rem 0;
+  font-weight: 600;
+}
+.investigador ol li {
+  font-size: 14px;
+}
+.investigador img {
+  max-height: 155px;
+  margin: 0 auto;
+}
+
+/* PANEL DE ADMINISTRACION */
+
+:root {
+  -light: #ffffff;
+  --grey: #efefef;
+}
+
+#sidebar-container {
+  min-height: 100vh;
+}
+
+#sidebar-container .logo {
+  padding: 1.25rem 1.75rem;
+  width: 100%;
+  justify-content: center;
+}
+
+#sidebar-container .menu {
+  width: 19rem;
+}
+
+#sidebar-container hr {
+  margin: 0;
+  border-bottom: 1px solid #001727;
+}
+
+#sidebar-container .menu a:hover {
+  text-decoration: none;
+  background-color: #002e4d;
+}
+
+.bg-panel {
+  background-color: #ebebeb;
+}
+
+.bg-aside {
+  background-color: var(--colorFondo);
+}
+
+.admin-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.head-admin-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.slider {
+  background: url('/img/extra/bg-3.png');
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+}
+
+.container2 {
+  max-width: 900px;
+}
+
+.limit-line {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
+}
+
+.limit-line2 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    overflow: hidden;
+}
+
+.redes {
+  font-size: 30px;
+}
+
+html {
+  height: 100%;
+}
+
+footer {
+  margin-top: auto;
+}

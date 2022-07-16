@@ -1,0 +1,53 @@
+<div class="bg-panel">
+    <div class="d-flex">
+
+        {{>sidebar}}
+
+        <div class="admin-container w-100 container">
+            <div class="head-admin-container m-3">
+                <h1 class="title">Menu de Administradores</h1>
+                <a href="/admin/signup"><button class="btn btn-primary">Agregar Administrador</button></a>
+            </div>
+
+            <div id="content" class="d-block">
+                <!-- Tabla -->
+                <div class="container w-100">
+                    <table class="table table-hover">
+                        <thead class="bg-primary text-light">
+                            <tr>
+                                <th>Nombre</th>
+                                <th width="45%">Correo</th>
+                                <th width="10%">Accion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each admin}}
+                            <tr>
+                                <td>{{name}}</td>
+                                <td>{{email}}</td>
+                                <td>
+                                    <div class="d-flex">
+                                        <form action="/admin/edit-invest/{{_id}}" method="PUT">
+                                            <button type="submit" class="btn btn-primary btn-sm mr-2">
+                                                <i class="fas fa-pen lead"></i>
+                                            </button>
+                                        </form>
+                                        <form action="/admin/delete-invest/{{_id}}?_method=DELETE" method="POST">
+                                        <input type="hidden" name="_method" value="DELETE">
+                                            <button type="submit" class="btn btn-danger btn-sm">
+                                                <i class="fas fa-trash-alt lead"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </td>                               
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>    
+
+    </div>
+</div>
